@@ -21,5 +21,18 @@ int main() {
   sum_carry f_res = adder::full(a, b, c);
   std::cout << "A F_ADD B, C = " << f_res.sum << " C: " << f_res.carry << std::endl;
 
+  byte byte_a = 8;
+  byte byte_b = 12;
+  byte sum = adder::ripple_8(byte_a, byte_b);
+  std::cout << +byte_a << " + " << +byte_b << " = " << +sum << std::endl;
+
+  for (byte a = 0; a < 127; a++) {
+    for (byte b = 0; b < 127; b++) {
+      if (a + b < 128) {
+        std::cout << +a << " + " << +b << " = " << +adder::ripple_8(a, b) << std::endl;
+      }
+    }
+  }
+
   return 0;
 }

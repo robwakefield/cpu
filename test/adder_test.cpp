@@ -42,3 +42,35 @@ TEST(AdderTest, FullAdder) {
   }
   
 }
+
+TEST(AdderTest, Ripple8AdderPositive) {
+  for (byte a = -128; a < 127; a++) {
+    for (byte b = -128; b < 127; b++) {
+      if (a + b >= 0 && a + b < 128) {
+        ASSERT_EQ(ripple_8(a, b), a + b);
+      }
+    }
+  }
+}
+
+TEST(AdderTest, Ripple8AdderNegative) {
+  for (byte a = -128; a < 127; a++) {
+    for (byte b = -128; b < 127; b++) {
+      if (a + b <= 0 && a + b >= -128) {
+        ASSERT_EQ(ripple_8(a, b), a + b);
+      }
+    }
+  }
+}
+
+TEST(AdderTest, Ripple8AdderOverflow) {
+    byte a = 127;
+    byte b = 1;
+    ASSERT_EQ(ripple_8(a, b), -128);
+}
+
+TEST(AdderTest, Ripple8AdderUnderflow) {
+    byte a = -128;
+    byte b = -1;
+    ASSERT_EQ(ripple_8(a, b), 127);
+}
