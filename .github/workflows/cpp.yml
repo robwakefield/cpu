@@ -1,0 +1,41 @@
+name: Unit Tests
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        submodules: 'true'
+    - name: Build with cmake
+      run: |
+        cmake -B build
+        cmake --build build
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: build
+        path: ./build
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Get build artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: build
+        path: ./build
+    - name: Give permissions
+      run: chmod +x ./build/*
+    - name: Run tests
+      run: ctest --test-dir ./build
