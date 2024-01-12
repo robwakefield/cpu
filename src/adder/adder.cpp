@@ -46,5 +46,23 @@ namespace adder {
 
     return sum;
   }
+
+  // If control bit D = 1, subtracts A from B
+  byte addsub_8(byte a, byte b, bit D) {
+    byte sum = 0;
+
+    bit c = D;
+    for (int i = 0; i < 8; i++) {
+      bit bit_a = _get_bit(a, i);
+      bit bit_b = _get_bit(b, i);
+      bit bit_m = gate::MUX_2(bit_a, NOT(bit_a), D);
+
+      sum_carry res = full(bit_m, bit_b, c);
+      _set_bit(&sum, i, res.sum);
+      c = res.carry;
+    }
+
+    return sum;
+  }
   
 }

@@ -13,6 +13,7 @@ namespace adder {
   sum_carry half(bit, bit);
   sum_carry full(bit, bit, bit);
   byte ripple_8(byte, byte);
+  byte addsub_8(byte, byte, bit);
 }
 
 #endif

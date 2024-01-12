@@ -74,3 +74,15 @@ TEST(AdderTest, Ripple8AdderUnderflow) {
     byte b = -1;
     ASSERT_EQ(ripple_8(a, b), 127);
 }
+
+TEST(AdderTest, AdderSubtractor) {
+  for (byte a = -128; a < 127; a++) {
+    for (byte b = -128; b < 127; b++) {
+      if (a + b >= -128 && a + b < 128) {
+        ASSERT_EQ(addsub_8(a, b, 0), a + b);
+      } else if (b - a >= -128 && b - a < 128) {
+        ASSERT_EQ(addsub_8(a, b, 1), b - a);
+      }
+    }
+  }
+}
