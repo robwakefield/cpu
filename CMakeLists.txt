@@ -16,14 +16,17 @@ enable_testing()
 add_subdirectory(googletest) # add googletest subdirectory
 include_directories(googletest/include) # this is so we can #include <gtest/gtest.h>
 
+include(GoogleTest)
+
 # Function to create and link test executable
-function(add_test_file TEST_NAME TEST_FILE)
-    add_executable(${TEST_NAME} ${TEST_FILE})
+function(add_test_file TEST_NAME TEST_FILES)
+    add_executable(${TEST_NAME} test/${TEST_NAME}.cpp ${TEST_FILES})
     target_link_libraries(${TEST_NAME} GTest::gtest_main)
+    gtest_discover_tests(${TEST_NAME})
 endfunction()
 
-add_test_file(example_test test/example_test.cpp)
-
-include(GoogleTest)
-gtest_discover_tests(example_test)
-
+add_executable(
+  adder_test test/adder_test.cpp src/gate/gate.cpp src/adder/adder.cpp
+)
+target_link_libraries(adder_test GTest::gtest_main)
+gtest_discover_tests(adder_test)
