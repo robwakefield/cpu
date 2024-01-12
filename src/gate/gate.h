@@ -14,7 +14,7 @@ namespace gate {
   bit XNOR(bit, bit);
 
   bit MUX_2(bit, bit, bit);
-  bit MUX_4(bit, bit, bit, bit, bit);
+  bit MUX_4(bit, bit, bit, bit, bit, bit);
 }
 
 #endif

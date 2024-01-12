@@ -38,19 +38,8 @@ namespace gate {
     return OR(AND(a, NOT(S)), AND(b, S));
   }
 
-  // Not implemented using logic gates to save time
-  bit MUX_4(bit a, bit b, bit c, bit d, bit S0, bit S1) {
-    switch ((S0 << 1) + S1) {
-      case 0x00:
-        return a;
-      case 0x01:
-        return b;
-      case 0x10:
-        return c;
-      case 0x11:
-        return d;
-      default:
-        return 0;
-    }
+  // S1 S0
+  bit MUX_4(bit a, bit b, bit c, bit d, bit S1, bit S0) {
+    return MUX_2(MUX_2(a, b, S0), MUX_2(c, d, S0), S1);
   }
 }
