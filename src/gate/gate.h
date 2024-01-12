@@ -12,6 +12,9 @@ namespace gate {
   bit NOR(bit, bit);
   bit XOR(bit, bit);
   bit XNOR(bit, bit);
+
+  bit MUX_2(bit, bit, bit);
+  bit MUX_4(bit, bit, bit, bit, bit);
 }
 
 #endif

@@ -30,3 +30,9 @@ add_executable(
 )
 target_link_libraries(adder_test GTest::gtest_main)
 gtest_discover_tests(adder_test)
+
+add_executable(
+  gate_test test/gate_test.cpp src/gate/gate.cpp
+)
+target_link_libraries(gate_test GTest::gtest_main)
+gtest_discover_tests(gate_test)
