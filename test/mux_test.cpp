@@ -50,3 +50,23 @@ TEST(MUXTest, byte_4) {
     }
   }
 }
+
+TEST(MUXTest, byte_8) {
+  for (byte a = -5; a < 5; a++) {
+    for (byte b = -5; b < 5; b++) {
+      for (byte c = -5; c < 5; c++) {
+        for (byte d = -5; d < 5; d++) {
+          byte choices[] = {a, b, c, d, a, b, c, d};
+          ASSERT_EQ(byte_8(choices, 0, 0, 0), a);
+          ASSERT_EQ(byte_8(choices, 0, 0, 1), b);
+          ASSERT_EQ(byte_8(choices, 0, 1, 0), c);
+          ASSERT_EQ(byte_8(choices, 0, 1, 1), d);
+          ASSERT_EQ(byte_8(choices, 1, 0, 0), a);
+          ASSERT_EQ(byte_8(choices, 1, 0, 1), b);
+          ASSERT_EQ(byte_8(choices, 1, 1, 0), c);
+          ASSERT_EQ(byte_8(choices, 1, 1, 1), d);
+        }
+      }
+    }
+  }
+}

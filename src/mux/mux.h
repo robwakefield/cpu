@@ -11,6 +11,7 @@ namespace MUX {
 
   byte byte_2(byte, byte, bit);
   byte byte_4(byte, byte, byte, byte, bit, bit);
+  byte byte_8(byte[8], bit, bit, bit);
 }
 
 #endif

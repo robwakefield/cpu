@@ -27,4 +27,11 @@ namespace MUX {
     return byte_2(byte_2(a, b, S0), byte_2(c, d, S0), S1);
   }
 
+  // S2 S1 S0
+  byte byte_8(byte choices[], bit S2, bit S1, bit S0) {
+    return byte_2(
+        byte_4(choices[0], choices[1], choices[2], choices[3], S1, S0),
+        byte_4(choices[4], choices[5], choices[6], choices[7], S1, S0), S2);
+  }
+
 }
