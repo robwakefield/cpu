@@ -1,5 +1,4 @@
 #include "adder.h"
-#include <iostream>
 
 using namespace gate;
 
@@ -20,10 +19,12 @@ namespace adder {
     return res;
   }
 
+  // Equivalent to branching off correct wire in 8bit bus
   bit _get_bit(byte b, int i) {
     return (b >> i) & 1;
   }
 
+  // Equivalent to putting a bit onto the correct wire in 8bit bus
   void _set_bit(byte* b, int i, bit s) {
     if (s) {
       *b |= 1 << i;
@@ -55,7 +56,7 @@ namespace adder {
     for (int i = 0; i < 8; i++) {
       bit bit_a = _get_bit(a, i);
       bit bit_b = _get_bit(b, i);
-      bit bit_m = gate::MUX_2(bit_a, NOT(bit_a), D);
+      bit bit_m = MUX::bit_2(bit_a, NOT(bit_a), D);
 
       sum_carry res = full(bit_m, bit_b, c);
       _set_bit(&sum, i, res.sum);

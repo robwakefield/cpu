@@ -5,6 +5,7 @@ add_executable(
   cpu
   src/main.cpp
   src/gate/gate.cpp
+  src/mux/mux.cpp
   src/adder/adder.cpp
 )
 
@@ -26,13 +27,18 @@ function(add_test_file TEST_NAME TEST_FILES)
 endfunction()
 
 add_executable(
-  adder_test test/adder_test.cpp src/gate/gate.cpp src/adder/adder.cpp
+  adder_test test/adder_test.cpp
+  src/adder/adder.cpp
+  src/gate/gate.cpp
+  src/mux/mux.cpp
 )
 target_link_libraries(adder_test GTest::gtest_main)
 gtest_discover_tests(adder_test)
 
 add_executable(
-  gate_test test/gate_test.cpp src/gate/gate.cpp
+  mux_test test/mux_test.cpp
+  src/mux/mux.cpp
+  src/gate/gate.cpp
 )
-target_link_libraries(gate_test GTest::gtest_main)
-gtest_discover_tests(gate_test)
+target_link_libraries(mux_test GTest::gtest_main)
+gtest_discover_tests(mux_test)
