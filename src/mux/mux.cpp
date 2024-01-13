@@ -13,4 +13,18 @@ namespace MUX {
     return bit_2(bit_2(a, b, S0), bit_2(c, d, S0), S1);
   }
 
+  byte byte_2(byte a, byte b, bit S) {
+    byte out = 0;
+    for (int i = 0; i < 8; i++) {
+      bit y = bit_2(_get_bit(a, i), _get_bit(b, i), S);
+      _set_bit(&out, i, y);
+    }
+    return out;
+  }
+
+  // S1 S0
+  byte byte_4(byte a, byte b, byte c, byte d, bit S1, bit S0) {
+    return byte_2(byte_2(a, b, S0), byte_2(c, d, S0), S1);
+  }
+
 }

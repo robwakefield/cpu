@@ -1,4 +1,5 @@
 #include "gate/gate.h"
+#include "mux/mux.h"
 #include "adder/adder.h"
 
 #include <iostream>
@@ -26,13 +27,15 @@ int main() {
   byte sum = adder::ripple_8(byte_a, byte_b);
   std::cout << +byte_a << " + " << +byte_b << " = " << +sum << std::endl;
 
-  for (byte a = 0; a < 127; a++) {
-    for (byte b = 0; b < 127; b++) {
-      if (a + b < 128) {
-        std::cout << +a << " + " << +b << " = " << +adder::ripple_8(a, b) << std::endl;
-      }
-    }
-  }
+  // for (byte a = 0; a < 127; a++) {
+  //   for (byte b = 0; b < 127; b++) {
+  //     if (a + b < 128) {
+  //       std::cout << +a << " + " << +b << " = " << +adder::ripple_8(a, b) << std::endl;
+  //     }
+  //   }
+  // }
+
+  std::cout << +MUX::byte_2(-4, -2, false) << std::endl;
 
   return 0;
 }

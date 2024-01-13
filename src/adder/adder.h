@@ -1,4 +1,5 @@
 #include "../types.h"
+#include "../helpers/helpers.h"
 #include "../gate/gate.h"
 #include "../mux/mux.h"
 
