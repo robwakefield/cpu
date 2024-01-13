@@ -1,9 +1,19 @@
 # cpu
 
-A CPU simulation developed in order to deepen my understanding of low-level computer architecture
+An 8bit CPU built using logic gates in order to deepen my understanding of low-level computer architecture.
 
-## Plan
+## Implemented
 
-### Logic Gates
+- [x] Logic Gates
+- [x] MUXs
+- [x] Adders
+- [x] Subtractors
+- [x] CI Unit Tests
 
-Implement logic gates BUF, NOT, AND, OR, XOR, NAND, NOR, XNOR
+
+## ToDo
+
+- ALU
+- Clock
+- Memory
+- IO
