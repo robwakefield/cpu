@@ -20,3 +20,39 @@ TEST(ALUTest, SUB) {
   b = 34;
   ASSERT_EQ(ALU::my6502(a, b, 0, OP_SUB).Y, b - a);
 }
+
+TEST(ALUTest, AND) {
+  byte a = 0xFF;
+  byte b = 0xFF;
+  byte exp = 0xFF;
+  ASSERT_EQ(ALU::my6502(a, b, 0, OP_AND).Y, exp);
+
+  a = 0x0F;
+  b = 0xF0;
+  exp = 0x00;
+  ASSERT_EQ(ALU::my6502(a, b, 0, OP_AND).Y, exp);
+}
+
+TEST(ALUTest, OR) {
+  byte a = 0xFF;
+  byte b = 0xFF;
+  byte exp = 0xFF;
+  ASSERT_EQ(ALU::my6502(a, b, 0, OP_OR).Y, exp);
+
+  a = 0x0F;
+  b = 0xF0;
+  exp = 0xFF;
+  ASSERT_EQ(ALU::my6502(a, b, 0, OP_OR).Y, exp);
+}
+
+TEST(ALUTest, XOR) {
+  byte a = 0xFF;
+  byte b = 0xFF;
+  byte exp = 0x00;
+  ASSERT_EQ(ALU::my6502(a, b, 0, OP_XOR).Y, exp);
+
+  a = 0x1F;
+  b = 0xF1;
+  exp = 0xEE;
+  ASSERT_EQ(ALU::my6502(a, b, 0, OP_XOR).Y, exp);
+}

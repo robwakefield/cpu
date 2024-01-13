@@ -1,6 +1,7 @@
 #include "gate/gate.h"
 #include "mux/mux.h"
 #include "adder/adder.h"
+#include "alu/alu.h"
 
 #include <iostream>
 
@@ -36,6 +37,8 @@ int main() {
   // }
 
   std::cout << +MUX::byte_2(-4, -2, false) << std::endl;
+
+  std::cout << +ALU::my6502(10, 12, 0, 0).Y << std::endl;
 
   return 0;
 }
