@@ -1,6 +1,6 @@
 # cpu
 
-A CPU simulation built using logic gates in order to deepen my understanding of low-level computer architecture.
+An 8bit CPU built using logic gates in order to deepen my understanding of low-level computer architecture.
 
 ## Implemented
 
