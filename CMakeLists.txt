@@ -8,6 +8,7 @@ add_executable(
   src/gate/gate.cpp
   src/mux/mux.cpp
   src/adder/adder.cpp
+  src/alu/alu.cpp
 )
 
 # GoogleTest requires at least C++14
@@ -45,3 +46,14 @@ add_executable(
 )
 target_link_libraries(mux_test GTest::gtest_main)
 gtest_discover_tests(mux_test)
+
+add_executable(
+  alu_test test/alu_test.cpp
+  src/alu/alu.cpp
+  src/helpers/helpers.cpp
+  src/gate/gate.cpp
+  src/mux/mux.cpp
+  src/adder/adder.cpp
+)
+target_link_libraries(alu_test GTest::gtest_main)
+gtest_discover_tests(alu_test)
