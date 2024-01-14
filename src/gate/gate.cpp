@@ -33,4 +33,22 @@ namespace gate {
   bit XNOR(bit a, bit b) {
     return NOT(XOR(a, b));
   }
+
+  // Chain (n_bits - 1) AND gates together
+  bit AND_bits(bit bits[], int n_bits) {
+    bit partial = 1;
+    for (int i = 0; i < n_bits; i++) {
+      partial = AND(partial, bits[i]);
+    }
+    return partial;
+  }
+
+  // Chain (n_bits - 1) OR gates together
+  bit OR_bits(bit bits[], int n_bits) {
+    bit partial = 0;
+    for (int i = 0; i < n_bits; i++) {
+      partial = OR(partial, bits[i]);
+    }
+    return partial;
+  }
 }

@@ -1,4 +1,5 @@
 #include "../types.h"
+#include "../helpers/helpers.h"
 
 #ifndef GATE_H
 #define GATE_H
@@ -13,8 +14,8 @@ namespace gate {
   bit XOR(bit, bit);
   bit XNOR(bit, bit);
 
-  bit MUX_2(bit, bit, bit);
-  bit MUX_4(bit, bit, bit, bit, bit, bit);
+  bit AND_bits(bit[], int);
+  bit OR_bits(bit[], int);
 }
 
 #endif

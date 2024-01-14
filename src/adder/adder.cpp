@@ -22,7 +22,7 @@ namespace adder {
   }
 
   byte ripple_8(byte a, byte b) {
-    byte sum = 0;
+    byte sum;
 
     bit c = 0;
     for (int i = 0; i < 8; i++) {
@@ -38,7 +38,7 @@ namespace adder {
 
   // If control bit D = 1, subtracts A from B
   byte addsub_8(byte a, byte b, bit D) {
-    byte sum = 0;
+    byte sum;
 
     bit c = D;
     for (int i = 0; i < 8; i++) {

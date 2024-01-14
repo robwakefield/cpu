@@ -40,11 +40,10 @@ struct control_bits {
 };
 
 struct status_reg {
-  bit carry_out;
   bit zero;
-  bit negative;
+  bit carry;
+  bit sign;
   bit overflow;
-  bit parity;
 };
 
 // https://lateblt.livejournal.com/87418.html
@@ -66,6 +65,10 @@ namespace ALU {
   byte block_OR(byte, byte);
   byte block_XOR(byte, byte);
   byte block_SR(byte, bit, bit);
+  bit Z_logic(byte);
+  bit C_logic(bit, bit, bit, alu_op);
+  bit S_logic(bit, byte, alu_op);
+  bit O_logic(bit, byte, byte, byte, alu_op);
 }
 
 #endif
